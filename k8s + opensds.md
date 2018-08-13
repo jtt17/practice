@@ -9,7 +9,7 @@
 
 ## Opensds是啥
 
-[Opensds]{"https://github.com/opensds"} 是一个开源项目。
+[Opensds]("https://github.com/opensds") 是一个开源项目。
 k8是管理容器的，容器的存储资源需要有外部提供，由各个不同厂商来提供。早期各商家的驱动代码需要嵌入k8中，这带来了一系列问题：
 * 不同驱动接口不同，维护难度大
 * 驱动代码需要和k8版本一起发布
