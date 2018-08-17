@@ -6,7 +6,7 @@
 
     edit the profile  ./config.json  
     
-    ```json
+```json
 {
     "server": "0.0.0.0",    //server ip 
     "server_ipv6": "::",    
