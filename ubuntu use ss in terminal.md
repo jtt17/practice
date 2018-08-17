@@ -36,7 +36,7 @@ git clone https://github.com/ssrbackup/shadowsocksr
     
 ## 3. run shadowsocksr
 ```shell
-python ~/shadowsocksr/shadowsocks/local/py -c ~/shadowsocksr/config.json
+python ~/shadowsocksr/shadowsocks/local.py -c ~/shadowsocksr/config.json
 ```
 ## 4. configurating local agent (http ,https)
    shadowsocks use Protocol Socks5, use Polipo to configurating http or https
