@@ -79,6 +79,16 @@ export http_proxy="http://127.0.0.1:8123/"
 export https_proxy="http://127.0.0.1:8123/"
 ```
 
+everytime when reboot
+
+need to run
+
+```shell
+python ~/shadowsocksr/shadowsocks/local.py -c ~/shadowsocksr/config.json
+/etc/init.d/polipo restart 
+export http_proxy="http://127.0.0.1:8123/"
+export https_proxy="http://127.0.0.1:8123/"
+```
 
 
 ENV:   ubuntu 16.04.3 LTS
