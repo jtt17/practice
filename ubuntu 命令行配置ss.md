@@ -1,6 +1,6 @@
 ## 1. download ss client
 ```shell
-    git clone https://github.com/ssrbackup/shadowsocksr
+git clone https://github.com/ssrbackup/shadowsocksr
 ```
 ## 2. edit config 
 
@@ -36,14 +36,14 @@
     
 ## 3. run shadowsocksr
 ```shell
-   python ~/shadowsocksr/shadowsocks/local/py -c ~/shadowsocksr/config.json
+python ~/shadowsocksr/shadowsocks/local/py -c ~/shadowsocksr/config.json
 ```
 ## 4. configurating local agent (http ,https)
    shadowsocks use Protocol Socks5, use Polipo to configurating http or https
    
 ```shell   
-   apt-get install polipo
-   vim /etc/polipo/config
+apt-get install polipo
+vim /etc/polipo/config
 ```
    replace by follow content:
    
@@ -75,8 +75,8 @@ proxyPort = 8123
     
     configurating proxy
 ```shell
-    export http_proxy="http://127.0.0.1:8123/"
-    export https_proxy="http://127.0.0.1:8123"
+export http_proxy="http://127.0.0.1:8123/"
+export https_proxy="http://127.0.0.1:8123"
 ```
 
 
