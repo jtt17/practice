@@ -27,7 +27,7 @@ kubernetes 不是一站式服务系统。
 
 # kubernetes 架构
 
-![image](https://img-blog.csdn.net/20180117105352494?)
+![image](https://github.com/jtt17/practice/blob/master/images/K8SArchitecture.png)
 
 
 
