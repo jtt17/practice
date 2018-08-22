@@ -29,7 +29,12 @@ kubernetes 不是一站式服务系统。
 
 ![image](https://github.com/jtt17/practice/blob/master/images/K8SArchitecture.png)
 
+# kubernetes Master Node
 
+![image](https://github.com/jtt17/practice/blob/master/images/K8SMaster.png)
 
+# kubernetes Node 
+
+![image](https://github.com/jtt17/practice/blob/master/images/K8SNode.png)
 
 
