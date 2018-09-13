@@ -11,8 +11,8 @@ git push
 
 ### git diff 文件名  查看文件更改内容
 
-###　git reset --hard HEAD^  回退到上一个版本  HEAD^^ 上上个版本   HEAD~100前100个版本
-###  git reset --hard 0x.... 跳转到指定版本 
+### git reset --hard HEAD^  回退到上一个版本  HEAD^^ 上上个版本   HEAD~100前100个版本
+### git reset --hard 0x.... 跳转到指定版本 
 ### git reflog 查看版本历史
 
 ### 删除远程分支 
