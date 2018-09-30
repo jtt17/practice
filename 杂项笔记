@@ -1,0 +1,94 @@
+k8s 重启系统后，k8s apiserver是跟着关闭的，需要重新手动启动
+所有相关命令执行步骤（文件更改完毕后）
+1.	启动k8s apiserver  （否则会报50040端口不可达，部署opensds的时候）
+ALLOW_PRIVILEGED=true FEATURE_GATES=CSIPersistentVolume=true,MountPropagation=true RUNTIME_CONFIG="storage.k8s.io/v1alpha1=true" LOG_LEVEL=5 hack/local-up-cluster.sh &
+
+2.	启动k8s的三个基础容器， 如果不启直接部署opensds 则会启动V0.2.0的CSI版本的容器
+kubectl create –f ~/gopath/src/github.com/opensds/nbp/csi/server/deploy/kubernetes/
+
+3.	部署opensds 
+ansible all –m ping –i local.hosts
+ansible-playbook site.yml -i local.hosts
+必须要执行下面两步才能创建profile
+cp /opt/opensds-linux-amd64/bin/osdsctl /usr/local/bin/
+source /opt/stack/devstack/openrc admin admin
+创建集群配置osdsctl profile create '{"name": "default", "description": "default policy"}'
+
+文件更改： 
+nbp 文件更改 ： /opensds/nbp/csi/server/deploy/kubernetes/csi-configmap-opensdsplugin.yaml 
+ 
+CSI版本号更改 
+opensds/nbp/csi/server/deploy/kubernetes 
+
+ansible ：
+
+ 
+ 
+
+错误情况：
+部署ansible时，如果出现连接amazon time out 错误，需要翻墙
+kubectl 中的叫 csi-nodeplugin-opensdsplugin- 删除后再启动需要重启系统
+k8s编译时如果有docker容器正在运行会编译失败，需要docker kill掉
+
+
+
+hauwei-dorado
+
+
+
+scp –r /etc/opensds/ 8.46.196.3:/etc/
+
+
+启动etcd
+启动osdsdock时如果连接etcd失败，则需要source下/etc/profile 跟重启etcd
+
+etcd --advertise-client-urls http://8.46.186.191:2379 --listen-client-urls http://8.46.186.191:2379 --listen-peer-urls http://8.46.186.191:2380 --data-dir /opt/opensds/etcd/data --debug &
+
+./osdslet –alsologtostderr
+./osdsdock –alsologtostderr
+cp /opt/opensds-linux-amd64/bin/osdsctl /usr/local/bin/
+source /opt/stack/devstack/openrc admin admin
+
+
+
+
+
+
+
+1 创建attachment 
+osdsctl volume attachment create '{
+"volumeId": "095d3487-a80a-449b-84d5-daa53c6d7c7a",
+"status": "available",
+"hostInfo": {
+"platform": "amd64",
+"osType": "linux",
+"ip": "8.47.186.191",
+"host": "opensds",
+"initiator": "iqn.1993-08.org.debian:01:819fae2c1a6"
+}
+}'
+2   iscsiadm -m discovery -t st -p 8.47.191.66
+3   登录iscsi存储 iscsiadm -m node  -p 8.47.191.66 -l
+挂载卷 mount /dev/sdb ~/work
+格式化卷 mkfs –t ext4 /dev/sdmkfsb
+查看所有已挂载的盘 df –h 
+取消挂载  umount ~/work
+查看etcd 数据库: 
+ETCDCTL_API=3 etcdctl get v1beta --prefix --endpoints=8.46.186.191:2379
+4   登出iscsi存储 iscsiadm -m node  -p 8.47.191.66 -u
+lsblk
+
+osdsctl volume attachment create '{
+"volumeId": "44a3b369-c572-4b39-a4d5-3a9231755e40",
+"status": "available",
+ "hostInfo": {
+    "platform": "amd64",
+    "osType": "linux",
+    "ip": "8.47.186.191",
+    "host": "opensds",
+    "initiator": "iqn.1993-08.org.debian:01:819fae2c1a6"
+   }
+}'
+
+
+
