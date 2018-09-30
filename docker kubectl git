@@ -1,0 +1,70 @@
+docker images [options] [repository[:tag]]   列出本地镜像
+
+docker images [options] 	-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）
+-f :显示满足条件的镜像
+-q :只显示镜像ID。
+docker rmi 镜像id	删除镜像（该镜像的所有容器必须stop）
+docker rm 容器id
+docker stop 容器id  
+docker container ls  / docker ps 
+docker kill xxxx
+docker container ls –a / docker ps -a	删除容器
+
+
+手动拉取镜像并改名	docker pull wisererik/pause:3.1
+docker tag wisererik/pause:3.1 k8s.gcr.io/pause:3.1
+
+修改docker镜像代码后需要在项目根目录下执行	make docker
+
+make docker 后不重启k8不会生效的
+进入容器	docker exec –it 容器ID /bin/bash
+
+停用所有运行中容器	docker stop $(docker ps -q)
+删除所有容器	docker rm $(docker ps -aq)
+	
+查询pod       kubectl get pod
+新建pod       kubectl create –f  .yaml
+删除pod       kubectl delete pod xxx
+              kubectl delete –f xxxx.yaml
+强制删除pod   kubectl delete pod xxx  --grace-period=0 –force
+查询pod所在节点  kubectl get pods –o wide
+查询pod详细    kubectl describe pod xxxx
+查询pod日志    kubectl logs –f  xxxx
+重建pod        kubectl replace –f xxxx [--force]
+
+
+git clone -b development https://github.com/jtt17/opensds.git
+
+git add /opensds
+
+git commit -m "test"
+
+git remote add <远程仓库代名> <url>  (url 指定分支) 
+
+git push 远程仓库名
+
+
+git clone -b development https://github.com/jtt17/opensds.git
+git add /opensds
+git commit -m "test"
+git remote add origin https://github.com/jtt17/opensds/tree/development
+git push
+
+
+
+git log 查看提交日志
+
+git diff 文件名  查看文件更改内容
+
+git reset --hard HEAD^  回退到上一个版本  HEAD^^ 上上个版本   HEAD~100前100个版本
+
+git reset --hard 0x.... 跳转到指定版本 
+
+要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+
+删除远程分支 
+git branch -d -r origin/branchname
+git push origin --delete branchname
+
+重命名分支 git branch -m oldname  newname
+
