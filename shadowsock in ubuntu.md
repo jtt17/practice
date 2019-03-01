@@ -96,3 +96,4 @@ ENV:   ubuntu 16.04.3 LTS
 TOOLS: shadowsocksr
 
 
+https://lijiancheng0614.github.io/2017/08/22/2017_08_22_TensorFlow-Object-Detection-API/
