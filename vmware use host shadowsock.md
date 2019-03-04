@@ -8,15 +8,22 @@
 </p>
 
 ### 2. Setting vmvare network adapter
-      ![image](https://github.com/jtt17/practice/blob/master/images/VMconfig.png)
-
+<p align="center">
+  <img src="images/VMconfig.png">
+</p>
  
 ### 3. Get your host ip 
+<p align="center">
+  <img src="images/localHostIp.png">
+</p>
        ![image](https://github.com/jtt17/practice/blob/master/images/localHostIp.png)
 
 
 ### 4. Setting vitural system(ubuntu) network proxy 
        use your local host ip and port 1080 record to step1 ssr 
-       ![image](https://github.com/jtt17/practice/blob/master/images/UbuntuProxyconfig.png)
-       
+<p align="center">
+  <img src="images/UbuntuProxyconfig.png">
+</p>
+
+
 reference to  https://blog.csdn.net/u012267725/article/details/77411161
